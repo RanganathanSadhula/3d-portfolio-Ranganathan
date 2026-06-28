@@ -143,23 +143,55 @@ function SlidingDoor({
       </Float>
       {hovered && <pointLight position={[0,0,1.5]} intensity={3} color="#FFD700" distance={6} />}
 
-      {/* Animated enter arrow — just above door */}
-      <Float speed={4} floatIntensity={0.3} rotationIntensity={0}>
-        <Text position={[0, 2.6, 0.4]} fontSize={0.28} color="#FFD700" anchorX="center" anchorY="middle">
-          👆 CLICK TO ENTER
-        </Text>
-      </Float>
-      <Float speed={3} floatIntensity={0.5} rotationIntensity={0}>
-        <Text position={[0, 2.1, 0.4]} fontSize={0.45} color="#00D4FF" anchorX="center" anchorY="middle">
+      {/* ── BIG RED BOUNCING ARROW — pointing down at the door, large + readable from far away ── */}
+      <Float speed={5} floatIntensity={2.2} rotationIntensity={0}>
+        <Text
+          position={[0, 2.4, 1.6]}
+          fontSize={1.3}
+          color="#ff1a1a"
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.07}
+          outlineColor="#000000"
+        >
+          ▼
           ▼
         </Text>
       </Float>
-      <Float speed={2.5} floatIntensity={0.4} rotationIntensity={0}>
-        <Text position={[0, 1.65, 0.4]} fontSize={0.35} color="#FFD700" anchorX="center" anchorY="middle">
-          ▼
+      {/* Label well above the door, large and bold so it reads from default camera distance */}
+      <Float speed={2} floatIntensity={0.3} rotationIntensity={0}>
+        <Text
+          position={[0, 3.6, 1.6]}
+          fontSize={0.5}
+          color="#ff1a1a"
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.045}
+          outlineColor="#000000"
+          fontWeight="bold"
+        >
+          CLICK HERE TO ENTER
         </Text>
       </Float>
-      {/* Glow ring around door */}
+      {/* Strong red glow lights right at the door */}
+      <pointLight position={[0, 2.4, 2]} intensity={8} color="#ff1a1a" distance={10} />
+      <pointLight position={[0, 3.6, 2]} intensity={6} color="#ff1a1a" distance={8} />
+
+      {/* Glowing ring on the ground directly at the door's base */}
+      <mesh position={[0, -1.78, 1.0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.0, 1.3, 32]} />
+        <meshStandardMaterial
+          color="#ff1a1a"
+          emissive="#ff1a1a"
+          emissiveIntensity={2.5}
+          transparent
+          opacity={0.8}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+
+      {/* Existing hover label kept */}
+      {/* Glow ring around door (existing cyan/gold accents) */}
       <pointLight position={[0, 0, 1.0]} intensity={hovered ? 5 : 2} color="#00D4FF" distance={5} />
       <pointLight position={[0, 1.5, 1.0]} intensity={hovered ? 3 : 1} color="#FFD700" distance={4} />
     </group>
