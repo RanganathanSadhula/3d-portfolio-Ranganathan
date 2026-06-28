@@ -7,7 +7,7 @@ import { PERSONAL_INFO } from '@/lib/data';
 const LINKS = [
   { label: 'LinkedIn', href: PERSONAL_INFO.linkedin, icon: '💼', color: '#0A66C2', desc: 'Connect professionally' },
   { label: 'GitHub', href: PERSONAL_INFO.github, icon: '⚡', color: '#00D4FF', desc: 'See my code' },
-  { label: 'Portfolio', href: PERSONAL_INFO.oldPortfolio, icon: '🌐', color: '#7C3AED', desc: 'Previous portfolio' },
+  { label: 'Portfolio', href: PERSONAL_INFO.portfolio, icon: '🌐', color: '#7C3AED', desc: 'View my previous portfolio' },
   { label: 'Email', href: `mailto:${PERSONAL_INFO.email}`, icon: '📩', color: '#F59E0B', desc: PERSONAL_INFO.email },
 ];
 
