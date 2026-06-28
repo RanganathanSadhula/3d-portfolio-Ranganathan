@@ -41,26 +41,6 @@ An immersive, interactive 3D portfolio built with Next.js, Three.js, and React T
 
 ### Installation
 
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start development server
-npm run dev
-
-# 3. Open in browser
-# http://localhost:3000
-```
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
----
-
 ## 🎮 Controls
 
 | Action | Key / Input |
