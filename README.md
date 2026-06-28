@@ -1,4 +1,4 @@
-# 🚀 Ranganathan Sadhula — 3D AI Innovation Campus Portfolio
+#  Ranganathan Sadhula — 3D AI Innovation Campus Portfolio
 
 An immersive, interactive 3D portfolio built with Next.js, Three.js, and React Three Fiber. Visitors explore a futuristic AI Innovation Campus to discover projects, skills, experience, and more.
 
@@ -33,7 +33,7 @@ An immersive, interactive 3D portfolio built with Next.js, Three.js, and React T
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -151,7 +151,7 @@ npm run build
 
 ## 📄 License
 
-Built for Ranganathan Sadhula — Sweet Design Hub (SDH)
+Built By Ranganathan Sadhula 
 
 ---
 
