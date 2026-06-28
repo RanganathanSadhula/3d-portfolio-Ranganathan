@@ -39,6 +39,7 @@ export default function SectionPanel() {
   const panelRef = useRef<HTMLDivElement>(null);
   const isOpen = showUI && activeSection !== 'entrance';
   const SectionComponent = activeSection !== 'entrance' ? SECTION_MAP[activeSection] : null;
+  const sectionLabel = activeSection !== 'entrance' ? SECTION_LABELS[activeSection] : '';
 
   useEffect(() => {
     if (panelRef.current) panelRef.current.scrollTop = 0;
@@ -80,7 +81,7 @@ export default function SectionPanel() {
             <div>
               <p className="text-xs text-white/30 font-mono uppercase tracking-widest">Raghav's Tech Den</p>
               <h2 className="text-base font-display font-bold text-white mt-0.5">
-                {activeSection !== 'entrance' ? SECTION_LABELS[activeSection] : ''}
+                {sectionLabel}
               </h2>
             </div>
             <button
