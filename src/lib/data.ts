@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/RanganathanSadhula',
   portfolio: 'https://ranganathan.netlify.app/',
   email: 'ranganathansadhula@gmail.com',
-  phone: '+91 7013608858',
+  phone: '+91 701360***',
   bio: `Junior Full Stack and AI/ML Developer at AAVIL Inc, passionate about building intelligent systems that solve real-world problems. 
   
 Graduate of Lakireddy Bali Reddy College of Engineering (B.Tech CSE - AI & ML, CGPA 8.5/10, 2021-2025).
