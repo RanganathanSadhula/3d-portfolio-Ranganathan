@@ -72,7 +72,6 @@ export const SKILLS = {
 
 export const PROJECTS = [
   {
-    {
       id: 'ambulance-traffic-clearance' ,
       title: 'Traffic Clearance System for Ambulance in High Density Areas',
       description: 'AI-powered real-time ambulance detection system by using camera and traffic clearance system designed for high-density areas. Uses YOLOv5 with Raspberry Pi and OpenCV to detect ambulances and automatically control traffic signals, emergency lane clearance, buzzer alerts, and LCD status display.',
