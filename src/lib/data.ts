@@ -72,16 +72,17 @@ export const SKILLS = {
 
 export const PROJECTS = [
   {
-    id: 'dataglow-ai',
-    title: 'DataGlow.ai — AI Data Readiness Platform',
-    description: 'Production AI-powered data readiness and quality platform (RAG-based pipeline) built at AAVIL Inc. Features live monitoring dashboards, agentic workflow approvals, Databricks integration, and automated data quality scoring across enterprise datasets. Actively deployed in production.',
-    tech: ['React', 'Vite', 'FastAPI', 'Node.js', 'Databricks', 'RAG', 'LangGraph'],
-    github: 'https://github.com/RanganathanSadhula',
-    demo: 'https://ranganathan.netlify.app/',
-    color: '#10B981',
-    category: 'AI / ML',
-    featured: true,
-    period: 'Apr 2026 – Present',
+    {
+  id: 'ambulance-traffic-clearance',
+  title: 'Traffic Clearance System for Ambulance in High Density Areas',
+  description: 'AI-powered real-time ambulance detection system by using camera and traffic clearance system designed for high-density areas. Uses YOLOv5 with Raspberry Pi and OpenCV to detect ambulances and automatically control traffic signals, emergency lane clearance, buzzer alerts, and LCD status display.',
+  tech: ['Python', 'YOLOv5', 'OpenCV', 'Raspberry Pi', 'Roboflow', 'Computer Vision'],
+  github: '[https://github.com/RanganathanSadhula](https://github.com/RanganathanSadhula)',
+  demo: '[https://ranganathan.netlify.app/](https://ranganathan.netlify.app/)',
+  color: '#10B981',
+  category: 'AI / ML',
+  featured: true,
+  period: 'Jan 2025 – Jun 2025',
   },
   {
     id: 'ai-chatbot',
@@ -125,7 +126,7 @@ export const EXPERIENCE = [
   {
     id: 1,
     role: 'Junior Full Stack and AI/ML Developer',
-    company: 'AAVIL Inc',
+    company: 'SDH',
     location: 'India',
     period: 'Apr 2026 – Present',
     type: 'Full-time',
