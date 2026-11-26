@@ -728,7 +728,7 @@ function TVOverlay({ stage, setStage }: { stage: 'zoomed' | 'bio'; setStage: (s:
                 <div>
                   <div style={{ color: '#00D4FF', fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{PERSONAL_INFO.name}</div>
                   <div style={{ color: '#FFD700', fontSize: 11, marginBottom: 3 }}>Junior Full Stack & AI/ML Developer</div>
-                  <div style={{ color: '#888', fontSize: 11 }}>@ AAVIL Inc - https://aavilabs.com/</div>
+                  <div style={{ color: '#888', fontSize: 11 }}>@ J&J</div>
                 </div>
               </div>
               <div style={{ height: 1, background: 'linear-gradient(90deg,#00D4FF,#7C3AED,transparent)', marginBottom: 14 }} />
@@ -864,7 +864,7 @@ function BioPanel({ onClose }: { onClose: () => void }) {
           <div>
             <div style={{fontSize:16,fontWeight:700,color:'#00D4FF'}}>{PERSONAL_INFO.name}</div>
             <div style={{fontSize:11,color:'rgba(255,255,255,0.5)',marginTop:2}}>Junior Full Stack & AI/ML Developer</div>
-            <div style={{fontSize:11,color:'#FFD700',marginTop:2}}>@ AAVIL Inc</div>
+            <div style={{fontSize:11,color:'#FFD700',marginTop:2}}>@ J&J</div>
           </div>
         </div>
         <div style={{height:1,background:'linear-gradient(90deg,#00D4FF,#7C3AED,transparent)',marginBottom:14}} />

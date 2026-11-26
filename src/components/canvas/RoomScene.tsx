@@ -442,7 +442,7 @@ export function RoomScene() {
       <PhotoFrame position={[-9.88, 6, -2]} rotation={[0, Math.PI / 2, 0]} label="CAMPUS" color="#f5d0a0" />
       <PhotoFrame position={[-9.88, 6, 1]} rotation={[0, Math.PI / 2, 0]} label="LBRCE" color="#a0c8f5" />
       <PhotoFrame position={[9.88, 6, -2]} rotation={[0, -Math.PI / 2, 0]} label="NIT-2025" color="#f5a0d0" />
-      <PhotoFrame position={[9.88, 6, 1]} rotation={[0, -Math.PI / 2, 0]} label="AAVIL" color="#a0f5c8" />
+      <PhotoFrame position={[9.88, 6, 1]} rotation={[0, -Math.PI / 2, 0]} label="J&J" color="#a0f5c8" />
 
       {/* ── MAIN DESK ── */}
       {/* Desk surface - large L-shape */}
@@ -565,25 +565,16 @@ export function RoomScene() {
         <Text position={[0, -0.4, 0.05]} fontSize={0.1} color="#666" anchorX="center">Vijayawada, India</Text>
       </group>
 
-      {/* ── AAVIL INC LOGO plate ── */}
+      {/* ── J&J LOGO plate ── */}
       <group position={[-4, 7.5, -6.88]}>
         {/* Plate background */}
         <Box position={[0, 0, 0]} size={[2.3, 1.1, 0.06]} color="#0a0a0a" roughness={0.15} metalness={0.85} emissive="#ffffff" emissiveIntensity={0.04} />
-        {/* 3D logo mark — three angled parallel slabs, like the uploaded AAVIL mark */}
-        <group position={[-0.62, 0.28, 0.05]} rotation={[0, 0, 0]}>
-          {[-0.26, 0, 0.26].map((x, i) => (
-            <mesh key={i} position={[x, 0, 0]} rotation={[0, 0, Math.PI / 5]} castShadow>
-              <boxGeometry args={[0.07, 0.34, 0.03]} />
-              <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.3} metalness={0.9} roughness={0.1} />
-            </mesh>
-          ))}
-        </group>
         {/* Wordmark */}
-        <Text position={[0, 0.1, 0.06]} fontSize={0.24} color="#ffffff" anchorX="center" anchorY="middle" letterSpacing={0.05}>
-          AAVIL INC
+        <Text position={[0, 0.1, 0.06]} fontSize={0.32} color="#ffffff" anchorX="center" anchorY="middle" letterSpacing={0.08}>
+          J&J
         </Text>
-        <Text position={[0, -0.2, 0.06]} fontSize={0.1} color="rgba(255,255,255,0.55)" anchorX="center" anchorY="middle">
-          Design · Engineering · AI
+        <Text position={[0, -0.2, 0.06]} fontSize={0.1} color="rgba(255,255,255,0.6)" anchorX="center" anchorY="middle">
+          Technology · Innovation · AI
         </Text>
       </group>
 

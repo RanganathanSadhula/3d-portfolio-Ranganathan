@@ -186,7 +186,7 @@ export default function ContactSection() {
         <LocationIcon className="w-3.5 h-3.5 text-[#00D4FF]" />
         <span>Based in Vijayawada, AP, India</span>
         <span className="mx-1">·</span>
-        <span>AAVIL Inc</span>
+        <span>J&J</span>
       </motion.div>
     </div>
   );

@@ -60,7 +60,7 @@ export default function HUDOverlay() {
               {PERSONAL_INFO.shortName}
             </span>
             <span className="text-white/20 text-xs font-mono">·</span>
-            <span className="text-[#00D4FF] text-xs font-mono">AAVIL Inc</span>
+            <span className="text-[#00D4FF] text-xs font-mono">J&J</span>
           </motion.div>
 
           {/* Right: Controls */}

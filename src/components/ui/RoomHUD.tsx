@@ -41,7 +41,7 @@ export default function RoomHUD() {
               <div className="w-2 h-2 rounded-full bg-[#00D4FF] animate-pulse" />
               <span className="font-display font-semibold text-sm text-white/80">Raghav</span>
               <span className="text-white/20 text-xs">·</span>
-              <span className="text-[#00D4FF] text-xs font-mono">AAVIL Inc</span>
+              <span className="text-[#00D4FF] text-xs font-mono">J&J</span>
             </div>
 
             {/* Back to exterior */}

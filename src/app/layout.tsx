@@ -4,10 +4,10 @@ import '../styles/globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ranganathan-3d-portfolio.netlify.app'),
-  title: 'Ranganathan Sadhula | AI/ML Engineer & Full Stack Developer',
+  title: 'Ranganathan Sadhula | AI/ML Engineer & Full Stack Developer | J&J',
   description:
-    'Interactive 3D portfolio of Ranganathan Sadhula — AI/ML Engineer and Full Stack Developer at AAVIL Inc, Vijayawada.',
-  keywords: ['AI Engineer', 'ML Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Python', 'AAVIL Inc'],
+    'Interactive 3D portfolio of Ranganathan Sadhula — AI/ML Engineer and Full Stack Developer at J&J, Vijayawada.',
+  keywords: ['AI Engineer', 'ML Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Python', 'J&J'],
   authors: [{ name: 'Ranganathan Sadhula' }],
   icons: {
     icon: [
