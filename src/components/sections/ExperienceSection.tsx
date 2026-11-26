@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { EXPERIENCE } from '@/lib/data';
+import { LocationIcon } from '@/components/ui/Icons';
 
 export default function ExperienceSection() {
   return (
@@ -73,8 +74,8 @@ export default function ExperienceSection() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-3 text-xs text-white/30 font-mono">
-                    <span>📍</span>
+                  <div className="flex items-center gap-1.5 mb-3 text-xs text-white/40 font-mono">
+                    <LocationIcon className="w-3 h-3 text-white/40" />
                     <span>{exp.location}</span>
                   </div>
 

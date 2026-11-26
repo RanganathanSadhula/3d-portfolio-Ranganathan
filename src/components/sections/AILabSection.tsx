@@ -150,27 +150,32 @@ export default function AILabSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <h3 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">AI / ML Stack</h3>
+        <h3 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">AI / ML Frameworks</h3>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { name: 'OpenAI GPT-4', icon: '🧠' },
-            { name: 'LangChain', icon: '⛓️' },
-            { name: 'PyTorch', icon: '🔥' },
-            { name: 'TensorFlow', icon: '📐' },
-            { name: 'Hugging Face', icon: '🤗' },
-            { name: 'Pinecone', icon: '🌲' },
-            { name: 'Anthropic Claude', icon: '🤖' },
-            { name: 'Scikit-learn', icon: '📊' },
+            { name: 'OpenAI GPT-4', tag: 'LLM', color: '#00D4FF' },
+            { name: 'LangChain & RAG', tag: 'RAG', color: '#10B981' },
+            { name: 'PyTorch', tag: 'DL', color: '#EE4C2C' },
+            { name: 'TensorFlow', tag: 'ML', color: '#FF6F00' },
+            { name: 'Hugging Face', tag: 'NLP', color: '#FFD21E' },
+            { name: 'Qdrant / Pinecone', tag: 'VDB', color: '#7C3AED' },
+            { name: 'Anthropic Claude', tag: 'AI', color: '#D97706' },
+            { name: 'Computer Vision', tag: 'CV', color: '#3B82F6' },
           ].map((item, i) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.35 + i * 0.03 }}
-              className="glass rounded-xl p-3 flex items-center gap-3 hover:bg-white/10 transition-colors"
+              className="glass rounded-xl p-3 flex items-center justify-between hover:bg-white/10 transition-colors"
             >
-              <span className="text-xl">{item.icon}</span>
-              <span className="text-xs font-display text-white/70">{item.name}</span>
+              <span className="text-xs font-display font-medium text-white/80">{item.name}</span>
+              <span
+                className="text-[10px] font-mono px-2 py-0.5 rounded font-semibold"
+                style={{ background: `${item.color}15`, color: item.color, border: `1px solid ${item.color}30` }}
+              >
+                {item.tag}
+              </span>
             </motion.div>
           ))}
         </div>

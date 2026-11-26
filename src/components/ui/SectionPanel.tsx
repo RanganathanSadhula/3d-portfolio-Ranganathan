@@ -24,14 +24,14 @@ const SECTION_MAP: Record<Exclude<CampusSection, 'entrance'>, React.ComponentTyp
 };
 
 const SECTION_LABELS: Record<Exclude<CampusSection, 'entrance'>, string> = {
-  lobby: '🏠 About Me',
-  'ai-lab': '🧠 AI Research Lab',
-  projects: '💡 Projects Studio',
-  github: '⚡ GitHub Center',
-  skills: '🛠️ Skills Arena',
-  experience: '📜 Experience Hall',
-  certifications: '🏆 Certification Gallery',
-  contact: '📡 Contact Lounge',
+  lobby: 'About Me',
+  'ai-lab': 'AI Research Lab',
+  projects: 'Projects Studio',
+  github: 'GitHub Center',
+  skills: 'Skills Arena',
+  experience: 'Experience Hall',
+  certifications: 'Certification Gallery',
+  contact: 'Contact Lounge',
 };
 
 export default function SectionPanel() {

@@ -2,6 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { usePortfolioStore } from '@/lib/store';
+import {
+  SunIcon,
+  MoonIcon,
+  VolumeIcon,
+  MuteIcon,
+  HomeIcon,
+  MouseIcon,
+  SearchIcon,
+  CodeIcon,
+} from '@/components/ui/Icons';
 
 export default function RoomHUD() {
   const { isDay, soundOn, showUI, toggleDayNight, toggleSound, sceneView, setSceneView, setActiveSection } = usePortfolioStore();
@@ -43,7 +53,7 @@ export default function RoomHUD() {
                 className="glass rounded-xl px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-colors text-sm"
                 style={{ border: '1px solid rgba(255,215,0,0.3)' }}
               >
-                <span>🏠</span>
+                <HomeIcon className="w-3.5 h-3.5 text-[#FFD700]" />
                 <span className="text-[#FFD700] text-xs font-display font-semibold">Back Outside</span>
               </motion.button>
             )}
@@ -59,15 +69,17 @@ export default function RoomHUD() {
             <button
               onClick={toggleDayNight}
               className="glass rounded-xl px-3 py-2 flex items-center gap-2 hover:bg-white/10 transition-colors text-sm pointer-events-auto"
+              title="Toggle Day/Night"
             >
-              <span>{isDay ? '☀️' : '🌙'}</span>
+              {isDay ? <SunIcon className="w-4 h-4 text-amber-400" /> : <MoonIcon className="w-4 h-4 text-[#00D4FF]" />}
               <span className="text-white/60 text-xs hidden md:block">{isDay ? 'Day' : 'Night'}</span>
             </button>
             <button
               onClick={toggleSound}
               className="glass rounded-xl px-3 py-2 hover:bg-white/10 transition-colors text-sm pointer-events-auto"
+              title="Toggle Audio"
             >
-              {soundOn ? '🔊' : '🔇'}
+              {soundOn ? <VolumeIcon className="w-4 h-4 text-[#00D4FF]" /> : <MuteIcon className="w-4 h-4 text-white/40" />}
             </button>
           </motion.div>
         </div>
@@ -80,29 +92,29 @@ export default function RoomHUD() {
         transition={{ delay: 0.8 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
       >
-        <div className="glass rounded-xl px-6 py-3 flex items-center gap-5 text-xs text-white/40 font-mono">
+        <div className="glass rounded-xl px-6 py-3 flex items-center gap-5 text-xs text-white/50 font-mono">
           {isInterior ? (
             <>
-              <span>🖱️ Drag to rotate</span>
+              <span className="flex items-center gap-1.5"><MouseIcon className="w-3 h-3 text-white/40" /> Drag to rotate</span>
               <span className="w-px h-3 bg-white/10" />
-              <span>🔍 Scroll to zoom</span>
+              <span className="flex items-center gap-1.5"><SearchIcon className="w-3 h-3 text-white/40" /> Scroll to zoom</span>
               <span className="w-px h-3 bg-white/10" />
-              <span>🖥️ Click monitor to explore</span>
+              <span className="flex items-center gap-1.5"><CodeIcon className="w-3 h-3 text-white/40" /> Click monitor to explore</span>
             </>
           ) : (
             <>
-              <span>🖱️ Drag to rotate</span>
+              <span className="flex items-center gap-1.5"><MouseIcon className="w-3 h-3 text-white/40" /> Drag to rotate</span>
               <span className="w-px h-3 bg-white/10" />
-              <span>🔍 Scroll to zoom</span>
+              <span className="flex items-center gap-1.5"><SearchIcon className="w-3 h-3 text-white/40" /> Scroll to zoom</span>
               <span className="w-px h-3 bg-white/10" />
-              <span>🚪 Click door to enter</span>
+              <span className="flex items-center gap-1.5">Click door to enter</span>
               <span className="w-px h-3 bg-white/10" />
-              <span>👆 Click avatar for bio</span>
+              <span className="flex items-center gap-1.5">Click avatar for bio</span>
             </>
           )}
           <span className="w-px h-3 bg-white/10" />
           <motion.span
-            className="text-[#00D4FF]"
+            className="text-[#00D4FF] font-semibold"
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 2, repeat: Infinity }}
           >

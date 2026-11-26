@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '@/lib/data';
+import { GitHubIcon, ExternalLinkIcon } from '@/components/ui/Icons';
 
 const CATEGORIES = ['All', 'AI / ML', 'Full Stack', 'Data Science', 'DevOps'];
 
@@ -117,20 +118,20 @@ export default function ProjectsSection() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono transition-colors"
-                          style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.7)' }}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono transition-colors hover:bg-white/15"
+                          style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.85)' }}
                         >
-                          <span>⚡</span> GitHub
+                          <GitHubIcon className="w-3.5 h-3.5 text-white/70" /> Code
                         </a>
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono transition-colors text-white"
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono transition-colors text-white hover:brightness-110"
                           style={{ background: `linear-gradient(135deg, ${project.color}40, ${project.color}20)`, border: `1px solid ${project.color}40` }}
                         >
-                          <span>🔗</span> Live Demo
+                          <ExternalLinkIcon className="w-3.5 h-3.5 text-white" /> Live Demo
                         </a>
                       </div>
                     </motion.div>

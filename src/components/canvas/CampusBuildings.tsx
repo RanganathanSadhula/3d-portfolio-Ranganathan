@@ -112,15 +112,16 @@ function Building({
         </Text>
       </Float>
 
-      {/* Icon floating above */}
+      {/* Marker floating above */}
       <Float speed={2} floatIntensity={0.5}>
         <Text
           position={[0, size[1] / 2 + 1.4, 0]}
-          fontSize={0.5}
+          fontSize={0.25}
+          color={isActive ? emissive : 'rgba(255,255,255,0.7)'}
           anchorX="center"
           anchorY="middle"
         >
-          {icon}
+          {`[ ${icon} ]`}
         </Text>
       </Float>
     </group>
@@ -218,7 +219,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'lobby' as CampusSection,
       label: 'Reception',
-      icon: '🏛️',
+      icon: '01',
       position: [-15, 0, -5] as [number, number, number],
       size: [8, 10, 6] as [number, number, number],
       color: '#0a1f3d',
@@ -227,7 +228,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'ai-lab' as CampusSection,
       label: 'AI Lab',
-      icon: '🧠',
+      icon: '02',
       position: [15, 0, -5] as [number, number, number],
       size: [8, 12, 6] as [number, number, number],
       color: '#1a0a2e',
@@ -236,7 +237,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'projects' as CampusSection,
       label: 'Projects',
-      icon: '💡',
+      icon: '03',
       position: [-15, 0, 15] as [number, number, number],
       size: [8, 8, 6] as [number, number, number],
       color: '#1f1400',
@@ -245,7 +246,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'github' as CampusSection,
       label: 'GitHub',
-      icon: '⚡',
+      icon: '04',
       position: [15, 0, 15] as [number, number, number],
       size: [7, 9, 6] as [number, number, number],
       color: '#0a1e0a',
@@ -254,7 +255,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'skills' as CampusSection,
       label: 'Skills',
-      icon: '🛠️',
+      icon: '05',
       position: [-25, 0, 5] as [number, number, number],
       size: [6, 7, 5] as [number, number, number],
       color: '#1a0f0a',
@@ -263,7 +264,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'experience' as CampusSection,
       label: 'Experience',
-      icon: '📜',
+      icon: '06',
       position: [25, 0, 5] as [number, number, number],
       size: [6, 11, 5] as [number, number, number],
       color: '#0f1a1a',
@@ -272,7 +273,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'certifications' as CampusSection,
       label: 'Certs',
-      icon: '🏆',
+      icon: '07',
       position: [0, 0, -20] as [number, number, number],
       size: [10, 8, 6] as [number, number, number],
       color: '#1a1500',
@@ -281,7 +282,7 @@ export function CampusBuildings({ activeSection }: BuildingsProps) {
     {
       id: 'contact' as CampusSection,
       label: 'Contact',
-      icon: '📡',
+      icon: '08',
       position: [0, 0, 30] as [number, number, number],
       size: [8, 6, 5] as [number, number, number],
       color: '#0a0a1a',

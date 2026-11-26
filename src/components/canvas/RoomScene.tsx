@@ -78,13 +78,13 @@ function Monitor({
       {/* Screen content */}
       <Text
         position={[0, 0.25, 0.15]}
-        fontSize={0.35}
-        color="white"
+        fontSize={0.2}
+        color="#00D4FF"
         anchorX="center"
         anchorY="middle"
         maxWidth={2.2}
       >
-        {icon}
+        {`[ ${icon} ]`}
       </Text>
       <Text
         position={[0, -0.1, 0.15]}
@@ -257,7 +257,7 @@ function WallArt({ position }: { position: [number, number, number] }) {
         ))
       )}
       <Text position={[0, -0.55, 0.06]} fontSize={0.12} color="#8B4513" anchorX="center">
-        🪷 Namaste 🪷
+        WELCOME
       </Text>
     </group>
   );
@@ -374,14 +374,14 @@ function NeonSign({ position, text, color }: { position: [number, number, number
 // ── Main Room ─────────────────────────────────────────────────
 export function RoomScene() {
   const MONITORS = [
-    { pos: [-5.5, 3.8, -4.5] as [number,number,number], rot: [0, 0.4, 0] as [number,number,number], label: 'About Me',       section: 'lobby'          as CampusSection, color: '#1a2a4a', screen: '#001f4d', icon: '👨‍💻' },
-    { pos: [-2.5, 3.8, -5.5] as [number,number,number], rot: [0, 0.15, 0] as [number,number,number], label: 'AI Research',    section: 'ai-lab'         as CampusSection, color: '#2a1a4a', screen: '#1a004d', icon: '🧠' },
-    { pos: [0.5,  3.8, -5.8] as [number,number,number], rot: [0, 0, 0] as [number,number,number],    label: 'Projects',       section: 'projects'       as CampusSection, color: '#2a1f00', screen: '#2a1000', icon: '💡' },
-    { pos: [3.5,  3.8, -5.5] as [number,number,number], rot: [0, -0.15, 0] as [number,number,number],label: 'GitHub',         section: 'github'         as CampusSection, color: '#0a2a1a', screen: '#002a10', icon: '⚡' },
-    { pos: [6.0,  3.8, -4.5] as [number,number,number], rot: [0, -0.4, 0] as [number,number,number], label: 'Skills',         section: 'skills'         as CampusSection, color: '#2a1500', screen: '#1a0800', icon: '🛠️' },
-    { pos: [-6.5, 1.6, -4.0] as [number,number,number], rot: [0, 0.5, 0] as [number,number,number],  label: 'Experience',     section: 'experience'     as CampusSection, color: '#0a2030', screen: '#001830', icon: '📜' },
-    { pos: [7.0,  1.6, -4.0] as [number,number,number], rot: [0, -0.5, 0] as [number,number,number], label: 'Certifications', section: 'certifications' as CampusSection, color: '#2a2000', screen: '#1a1200', icon: '🏆' },
-    { pos: [0.5,  1.6,  3.5] as [number,number,number], rot: [0, Math.PI, 0] as [number,number,number], label: 'Contact Me',  section: 'contact'        as CampusSection, color: '#1a002a', screen: '#10001a', icon: '📡' },
+    { pos: [-5.5, 3.8, -4.5] as [number,number,number], rot: [0, 0.4, 0] as [number,number,number], label: 'About Me',       section: 'lobby'          as CampusSection, color: '#1a2a4a', screen: '#001f4d', icon: 'BIO.01' },
+    { pos: [-2.5, 3.8, -5.5] as [number,number,number], rot: [0, 0.15, 0] as [number,number,number], label: 'AI Research',    section: 'ai-lab'         as CampusSection, color: '#2a1a4a', screen: '#1a004d', icon: 'AI.02' },
+    { pos: [0.5,  3.8, -5.8] as [number,number,number], rot: [0, 0, 0] as [number,number,number],    label: 'Projects',       section: 'projects'       as CampusSection, color: '#2a1f00', screen: '#2a1000', icon: 'WORK.03' },
+    { pos: [3.5,  3.8, -5.5] as [number,number,number], rot: [0, -0.15, 0] as [number,number,number],label: 'GitHub',         section: 'github'         as CampusSection, color: '#0a2a1a', screen: '#002a10', icon: 'CODE.04' },
+    { pos: [6.0,  3.8, -4.5] as [number,number,number], rot: [0, -0.4, 0] as [number,number,number], label: 'Skills',         section: 'skills'         as CampusSection, color: '#2a1500', screen: '#1a0800', icon: 'STACK.05' },
+    { pos: [-6.5, 1.6, -4.0] as [number,number,number], rot: [0, 0.5, 0] as [number,number,number],  label: 'Experience',     section: 'experience'     as CampusSection, color: '#0a2030', screen: '#001830', icon: 'EXP.06' },
+    { pos: [7.0,  1.6, -4.0] as [number,number,number], rot: [0, -0.5, 0] as [number,number,number], label: 'Certifications', section: 'certifications' as CampusSection, color: '#2a2000', screen: '#1a1200', icon: 'CERTS.07' },
+    { pos: [0.5,  1.6,  3.5] as [number,number,number], rot: [0, Math.PI, 0] as [number,number,number], label: 'Contact Me',  section: 'contact'        as CampusSection, color: '#1a002a', screen: '#10001a', icon: 'COMMS.08' },
   ];
 
   return (
@@ -439,10 +439,10 @@ export function RoomScene() {
       <WallArt position={[7.5, 6, -3.9]} />
 
       {/* Photo frames on side walls */}
-      <PhotoFrame position={[-9.88, 6, -2]} rotation={[0, Math.PI / 2, 0]} label="🏠" color="#f5d0a0" />
-      <PhotoFrame position={[-9.88, 6, 1]} rotation={[0, Math.PI / 2, 0]} label="🎓" color="#a0c8f5" />
-      <PhotoFrame position={[9.88, 6, -2]} rotation={[0, -Math.PI / 2, 0]} label="🏆" color="#f5a0d0" />
-      <PhotoFrame position={[9.88, 6, 1]} rotation={[0, -Math.PI / 2, 0]} label="💼" color="#a0f5c8" />
+      <PhotoFrame position={[-9.88, 6, -2]} rotation={[0, Math.PI / 2, 0]} label="CAMPUS" color="#f5d0a0" />
+      <PhotoFrame position={[-9.88, 6, 1]} rotation={[0, Math.PI / 2, 0]} label="LBRCE" color="#a0c8f5" />
+      <PhotoFrame position={[9.88, 6, -2]} rotation={[0, -Math.PI / 2, 0]} label="NIT-2025" color="#f5a0d0" />
+      <PhotoFrame position={[9.88, 6, 1]} rotation={[0, -Math.PI / 2, 0]} label="AAVIL" color="#a0f5c8" />
 
       {/* ── MAIN DESK ── */}
       {/* Desk surface - large L-shape */}
@@ -597,7 +597,7 @@ export function RoomScene() {
           anchorX="center"
           anchorY="middle"
         >
-          👆 Click any monitor to explore
+          Click any monitor to explore
         </Text>
       </Float>
     </group>

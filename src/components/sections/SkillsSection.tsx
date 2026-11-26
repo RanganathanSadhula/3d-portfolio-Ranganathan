@@ -3,20 +3,29 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SKILLS } from '@/lib/data';
+import {
+  CodeIcon,
+  TerminalIcon,
+  BrainIcon,
+  DatabaseIcon,
+  GitForkIcon,
+  CloudIcon,
+} from '@/components/ui/Icons';
 
 const CATEGORIES = [
-  { key: 'frontend', label: 'Frontend', icon: '🎨', color: '#00D4FF' },
-  { key: 'backend', label: 'Backend', icon: '⚙️', color: '#7C3AED' },
-  { key: 'aiMl', label: 'AI / ML', icon: '🧠', color: '#10B981' },
-  { key: 'databases', label: 'Databases', icon: '🗄️', color: '#F59E0B' },
-  { key: 'devops', label: 'DevOps', icon: '🚀', color: '#EF4444' },
-  { key: 'cloud', label: 'Cloud', icon: '☁️', color: '#3B82F6' },
+  { key: 'frontend', label: 'Frontend', Icon: CodeIcon, color: '#00D4FF' },
+  { key: 'backend', label: 'Backend', Icon: TerminalIcon, color: '#7C3AED' },
+  { key: 'aiMl', label: 'AI / ML', Icon: BrainIcon, color: '#10B981' },
+  { key: 'databases', label: 'Databases', Icon: DatabaseIcon, color: '#F59E0B' },
+  { key: 'devops', label: 'DevOps', Icon: GitForkIcon, color: '#EF4444' },
+  { key: 'cloud', label: 'Cloud', Icon: CloudIcon, color: '#3B82F6' },
 ];
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState('frontend');
   const cat = CATEGORIES.find((c) => c.key === activeCategory)!;
   const skills = SKILLS[activeCategory as keyof typeof SKILLS];
+  const ActiveIcon = cat.Icon;
 
   return (
     <div className="p-8 min-h-screen">
@@ -31,25 +40,29 @@ export default function SkillsSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="grid grid-cols-3 gap-2 mb-8"
+        className="grid grid-cols-3 gap-2.5 mb-8"
       >
-        {CATEGORIES.map((c) => (
-          <button
-            key={c.key}
-            onClick={() => setActiveCategory(c.key)}
-            className={`p-3 rounded-xl text-center transition-all duration-300 ${
-              activeCategory === c.key ? 'border' : 'glass hover:bg-white/10'
-            }`}
-            style={
-              activeCategory === c.key
-                ? { background: `${c.color}15`, borderColor: `${c.color}40`, color: c.color }
-                : {}
-            }
-          >
-            <div className="text-xl mb-1">{c.icon}</div>
-            <div className="text-xs font-mono text-inherit">{c.label}</div>
-          </button>
-        ))}
+        {CATEGORIES.map((c) => {
+          const ItemIcon = c.Icon;
+          const isActive = activeCategory === c.key;
+          return (
+            <button
+              key={c.key}
+              onClick={() => setActiveCategory(c.key)}
+              className={`p-3 rounded-xl text-center transition-all duration-300 flex flex-col items-center justify-center gap-1.5 ${
+                isActive ? 'border shadow-lg' : 'glass hover:bg-white/10'
+              }`}
+              style={
+                isActive
+                  ? { background: `${c.color}15`, borderColor: `${c.color}40`, color: c.color }
+                  : { color: 'rgba(255,255,255,0.7)' }
+              }
+            >
+              <ItemIcon className="w-5 h-5" />
+              <div className="text-xs font-mono">{c.label}</div>
+            </button>
+          );
+        })}
       </motion.div>
 
       {/* Skills for category */}
@@ -62,8 +75,13 @@ export default function SkillsSection() {
           transition={{ duration: 0.3 }}
           className="space-y-4"
         >
-          <div className="flex items-center gap-2 mb-6">
-            <span className="text-2xl">{cat.icon}</span>
+          <div className="flex items-center gap-3 mb-6">
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ background: `${cat.color}20`, border: `1px solid ${cat.color}40`, color: cat.color }}
+            >
+              <ActiveIcon className="w-4 h-4" />
+            </div>
             <h3 className="text-xl font-display font-bold text-white">{cat.label}</h3>
             <div className="h-px flex-1" style={{ background: `linear-gradient(90deg, ${cat.color}40, transparent)` }} />
           </div>
@@ -79,7 +97,7 @@ export default function SkillsSection() {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-display font-medium text-white/80">{skill.name}</span>
                 <motion.span
-                  className="text-xs font-mono"
+                  className="text-xs font-mono font-semibold"
                   style={{ color: cat.color }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -133,11 +151,11 @@ export default function SkillsSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.55 + i * 0.01 }}
-                className="text-xs px-2 py-1 rounded-md font-mono"
+                className="text-xs px-2.5 py-1 rounded-md font-mono"
                 style={{
                   background: 'rgba(255,255,255,0.04)',
-                  color: 'rgba(255,255,255,0.4)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  color: 'rgba(255,255,255,0.6)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
                 {s.name}

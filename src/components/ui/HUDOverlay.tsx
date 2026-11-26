@@ -4,16 +4,31 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePortfolioStore, CampusSection } from '@/lib/store';
 import { PERSONAL_INFO } from '@/lib/data';
+import {
+  SunIcon,
+  MoonIcon,
+  VolumeIcon,
+  MuteIcon,
+  MouseIcon,
+  CompassIcon,
+  BrainIcon,
+  CodeIcon,
+  GitHubIcon,
+  TerminalIcon,
+  BriefcaseIcon,
+  AwardIcon,
+  SendIcon,
+} from '@/components/ui/Icons';
 
-const NAV_ITEMS: { id: CampusSection; label: string; icon: string; short: string }[] = [
-  { id: 'lobby', label: 'Reception Lobby', icon: '🏛️', short: 'Lobby' },
-  { id: 'ai-lab', label: 'AI Research Lab', icon: '🧠', short: 'AI Lab' },
-  { id: 'projects', label: 'Projects Studio', icon: '💡', short: 'Projects' },
-  { id: 'github', label: 'GitHub Center', icon: '⚡', short: 'GitHub' },
-  { id: 'skills', label: 'Skills Arena', icon: '🛠️', short: 'Skills' },
-  { id: 'experience', label: 'Experience Hall', icon: '📜', short: 'Experience' },
-  { id: 'certifications', label: 'Cert Gallery', icon: '🏆', short: 'Certs' },
-  { id: 'contact', label: 'Contact Lounge', icon: '📡', short: 'Contact' },
+const NAV_ITEMS: { id: CampusSection; label: string; icon: React.ComponentType<{ className?: string }>; short: string }[] = [
+  { id: 'lobby', label: 'Reception Lobby', icon: CompassIcon, short: 'Lobby' },
+  { id: 'ai-lab', label: 'AI Research Lab', icon: BrainIcon, short: 'AI Lab' },
+  { id: 'projects', label: 'Projects Studio', icon: CodeIcon, short: 'Projects' },
+  { id: 'github', label: 'GitHub Center', icon: GitHubIcon, short: 'GitHub' },
+  { id: 'skills', label: 'Skills Arena', icon: TerminalIcon, short: 'Skills' },
+  { id: 'experience', label: 'Experience Hall', icon: BriefcaseIcon, short: 'Experience' },
+  { id: 'certifications', label: 'Cert Gallery', icon: AwardIcon, short: 'Certs' },
+  { id: 'contact', label: 'Contact Lounge', icon: SendIcon, short: 'Contact' },
 ];
 
 export default function HUDOverlay() {
@@ -45,7 +60,7 @@ export default function HUDOverlay() {
               {PERSONAL_INFO.shortName}
             </span>
             <span className="text-white/20 text-xs font-mono">·</span>
-            <span className="text-[#00D4FF] text-xs font-mono">SDH</span>
+            <span className="text-[#00D4FF] text-xs font-mono">AAVIL Inc</span>
           </motion.div>
 
           {/* Right: Controls */}
@@ -59,8 +74,9 @@ export default function HUDOverlay() {
             <button
               onClick={toggleDayNight}
               className="glass rounded-lg px-3 py-2 flex items-center gap-2 hover:bg-white/10 transition-colors text-sm"
+              title="Toggle Day/Night"
             >
-              <span>{isDay ? '☀️' : '🌙'}</span>
+              {isDay ? <SunIcon className="w-4 h-4 text-amber-400" /> : <MoonIcon className="w-4 h-4 text-[#00D4FF]" />}
               <span className="text-white/60 text-xs hidden md:block">
                 {isDay ? 'Day' : 'Night'}
               </span>
@@ -70,14 +86,16 @@ export default function HUDOverlay() {
             <button
               onClick={toggleMute}
               className="glass rounded-lg px-3 py-2 flex items-center gap-2 hover:bg-white/10 transition-colors text-sm"
+              title="Toggle Audio"
             >
-              <span>{isMuted ? '🔇' : '🔊'}</span>
+              {isMuted ? <MuteIcon className="w-4 h-4 text-white/40" /> : <VolumeIcon className="w-4 h-4 text-[#00D4FF]" />}
             </button>
 
             {/* Menu */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="glass rounded-lg px-3 py-2 flex items-center gap-2 hover:bg-white/10 transition-colors"
+              title="Campus Navigation"
             >
               <div className="flex flex-col gap-1 w-4">
                 <motion.div
@@ -106,38 +124,43 @@ export default function HUDOverlay() {
           transition={{ delay: 0.8 }}
           className="flex flex-col gap-2"
         >
-          {NAV_ITEMS.map((item, i) => (
-            <motion.button
-              key={item.id}
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.8 + i * 0.05 }}
-              onClick={() => setActiveSection(item.id)}
-              className={`group flex items-center gap-3 glass rounded-lg px-3 py-2.5 transition-all duration-300 ${
-                activeSection === item.id
-                  ? 'border-[#00D4FF]/50 bg-[#00D4FF]/10'
-                  : 'hover:bg-white/10'
-              }`}
-            >
-              <span className="text-base">{item.icon}</span>
-              <motion.span
-                className={`text-xs font-display font-medium overflow-hidden whitespace-nowrap transition-colors ${
-                  activeSection === item.id ? 'text-[#00D4FF]' : 'text-white/50 group-hover:text-white/80'
+          {NAV_ITEMS.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <motion.button
+                key={item.id}
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.8 + i * 0.05 }}
+                onClick={() => setActiveSection(item.id)}
+                className={`group flex items-center gap-3 glass rounded-lg px-3 py-2.5 transition-all duration-300 ${
+                  activeSection === item.id
+                    ? 'border-[#00D4FF]/50 bg-[#00D4FF]/10 text-[#00D4FF]'
+                    : 'text-white/60 hover:text-white hover:bg-white/10'
                 }`}
-                initial={{ width: 0, opacity: 0 }}
-                whileHover={{ width: 'auto', opacity: 1 }}
-                style={{ maxWidth: 120 }}
               >
-                {item.short}
-              </motion.span>
-              {activeSection === item.id && (
-                <motion.div
-                  layoutId="activeNav"
-                  className="absolute left-0 w-0.5 h-6 bg-[#00D4FF] rounded-r"
-                />
-              )}
-            </motion.button>
-          ))}
+                <span className="text-base">
+                  <Icon className="w-4 h-4" />
+                </span>
+                <motion.span
+                  className={`text-xs font-display font-medium overflow-hidden whitespace-nowrap transition-colors ${
+                    activeSection === item.id ? 'text-[#00D4FF]' : 'text-white/50 group-hover:text-white/80'
+                  }`}
+                  initial={{ width: 0, opacity: 0 }}
+                  whileHover={{ width: 'auto', opacity: 1 }}
+                  style={{ maxWidth: 120 }}
+                >
+                  {item.short}
+                </motion.span>
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute left-0 w-0.5 h-6 bg-[#00D4FF] rounded-r"
+                  />
+                )}
+              </motion.button>
+            );
+          })}
         </motion.div>
       </div>
 
@@ -158,7 +181,7 @@ export default function HUDOverlay() {
           </div>
           <div className="w-px h-4 bg-white/10" />
           <div className="flex items-center gap-2 text-xs text-white/40 font-mono">
-            <span>🖱️</span>
+            <MouseIcon className="w-3.5 h-3.5 text-white/50" />
             <span>Look</span>
           </div>
           <div className="w-px h-4 bg-white/10" />
@@ -194,29 +217,32 @@ export default function HUDOverlay() {
               <h2 className="text-xs tracking-[0.4em] uppercase text-[#00D4FF]/60 font-mono mb-8">
                 Campus Navigation
               </h2>
-              {NAV_ITEMS.map((item, i) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => {
-                    setActiveSection(item.id);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`flex items-center gap-4 px-8 py-3 rounded-xl transition-all duration-300 w-64 ${
-                    activeSection === item.id
-                      ? 'bg-[#00D4FF]/10 border border-[#00D4FF]/30 text-[#00D4FF]'
-                      : 'hover:bg-white/5 text-white/60 hover:text-white'
-                  }`}
-                >
-                  <span className="text-xl">{item.icon}</span>
-                  <span className="font-display font-medium">{item.label}</span>
-                  {activeSection === item.id && (
-                    <span className="ml-auto text-[#00D4FF] text-xs">●</span>
-                  )}
-                </motion.button>
-              ))}
+              {NAV_ITEMS.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.button
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => {
+                      setActiveSection(item.id);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`flex items-center gap-4 px-8 py-3 rounded-xl transition-all duration-300 w-64 ${
+                      activeSection === item.id
+                        ? 'bg-[#00D4FF]/10 border border-[#00D4FF]/30 text-[#00D4FF]'
+                        : 'hover:bg-white/5 text-white/60 hover:text-white'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5 text-inherit" />
+                    <span className="font-display font-medium">{item.label}</span>
+                    {activeSection === item.id && (
+                      <span className="ml-auto text-[#00D4FF] text-xs">●</span>
+                    )}
+                  </motion.button>
+                );
+              })}
             </div>
           </motion.div>
         )}

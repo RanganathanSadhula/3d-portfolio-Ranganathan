@@ -138,7 +138,7 @@ function SlidingDoor({
       </mesh>
       <Float speed={2} floatIntensity={0.2} rotationIntensity={0}>
         <Text position={[0, 2.4, 0.3]} fontSize={0.28} color={hovered ? '#FFD700' : '#ffffff'} anchorX="center" anchorY="middle">
-          {hovered ? '🚪 Enter Portfolio' : '🏠 Click to Enter'}
+          {hovered ? 'Enter Portfolio' : 'Click to Enter'}
         </Text>
       </Float>
       {hovered && <pointLight position={[0,0,1.5]} intensity={3} color="#FFD700" distance={6} />}
@@ -583,8 +583,8 @@ function JaguarCar({ position }: { position: [number,number,number] }) {
       {/* ── HUD LABEL ── */}
       {(showPrompt || riding) && (
         <Float speed={3} floatIntensity={0.3} rotationIntensity={0}>
-          <Text position={[0, 2.2, 0]} fontSize={0.26} color={riding ? '#00ff88' : accentColor} anchorX="center" anchorY="middle">
-            {riding ? '🏎 ↑/W=Forward  ↓/S=Back  ←/A=Left  →/D=Right  Click=Exit' : '🏎 Jaguar XF — Click to Drive'}
+          <Text position={[0, 2.2, 0]} fontSize={0.24} color={riding ? '#00ff88' : accentColor} anchorX="center" anchorY="middle">
+            {riding ? 'Drive: ↑/W=Forward  ↓/S=Back  ←/A=Left  →/D=Right  Click=Exit' : 'Jaguar XF — Click to Drive'}
           </Text>
         </Float>
       )}
@@ -701,7 +701,7 @@ function TVOverlay({ stage, setStage }: { stage: 'zoomed' | 'bio'; setStage: (s:
             <div style={{ width: 340, height: 400, borderRadius: 16, overflow: 'hidden', border: '4px solid #00D4FF', boxShadow: '0 0 80px rgba(0,212,255,0.6)' }}>
               <img src="/avatar.jpg" alt="Raghav" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
             </div>
-            <div style={{ color: '#FFD700', marginTop: 16, fontFamily: 'monospace', fontSize: 14 }}>👆 Click anywhere to open Bio</div>
+            <div style={{ color: '#FFD700', marginTop: 16, fontFamily: 'monospace', fontSize: 14 }}>Click anywhere to open Bio</div>
             <button onClick={(e) => { e.stopPropagation(); setStage('idle'); }} style={{
               marginTop: 14, background: 'rgba(255,0,0,0.15)', border: '1px solid rgba(255,0,0,0.4)',
               color: '#ff6666', borderRadius: 8, padding: '6px 16px', fontSize: 12, cursor: 'pointer',
@@ -717,7 +717,7 @@ function TVOverlay({ stage, setStage }: { stage: 'zoomed' | 'bio'; setStage: (s:
               <div style={{ display: 'flex', gap: 6 }}>
                 {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
               </div>
-              <span style={{ color: '#00D4FF', fontSize: 11, letterSpacing: '0.2em' }}>📺 RAGHAV.Bio</span>
+              <span style={{ color: '#00D4FF', fontSize: 11, letterSpacing: '0.2em' }}>RAGHAV.Bio</span>
               <button onClick={() => setStage('idle')} style={{ background: 'rgba(255,0,0,0.2)', border: '1px solid rgba(255,0,0,0.4)', color: '#ff4444', borderRadius: 6, width: 26, height: 26, cursor: 'pointer', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✕</button>
             </div>
             <div style={{ padding: 20 }}>
@@ -727,20 +727,20 @@ function TVOverlay({ stage, setStage }: { stage: 'zoomed' | 'bio'; setStage: (s:
                 </div>
                 <div>
                   <div style={{ color: '#00D4FF', fontSize: 17, fontWeight: 700, marginBottom: 4 }}>{PERSONAL_INFO.name}</div>
-                  <div style={{ color: '#FFD700', fontSize: 11, marginBottom: 3 }}>⚡ Junior Full Stack & AI/ML Developer</div>
+                  <div style={{ color: '#FFD700', fontSize: 11, marginBottom: 3 }}>Junior Full Stack & AI/ML Developer</div>
                   <div style={{ color: '#888', fontSize: 11 }}>@ AAVIL Inc - https://aavilabs.com/</div>
                 </div>
               </div>
               <div style={{ height: 1, background: 'linear-gradient(90deg,#00D4FF,#7C3AED,transparent)', marginBottom: 14 }} />
               {[
-                { icon: '📧', label: 'ranganathansadhula@gmail.com' },
-                { icon: '🎓', label: 'B.Tech CSE (AI&ML) — LBRCE' },
-                { icon: '🏆', label: 'Best Final Year Project — NIT 2025' },
-                { icon: '🥈', label: '2nd Prize National Level — GMRIT 2025' },
-                { icon: '🥇', label: '1st Prize — NEONITE 2k22' },
+                { tag: 'EMAIL', label: 'ranganathansadhula@gmail.com' },
+                { tag: 'DEGREE', label: 'B.Tech CSE (AI&ML) — LBRCE' },
+                { tag: 'AWARD', label: 'Best Final Year Project — NIT 2025' },
+                { tag: 'HONOR', label: '2nd Prize National Level — GMRIT 2025' },
+                { tag: 'HONOR', label: '1st Prize — NEONITE 2k22' },
               ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 8, alignItems: 'flex-start', color: 'rgba(255,255,255,0.75)', fontSize: 11, lineHeight: 1.5 }}>
-                  <span style={{ fontSize: 13, flexShrink: 0 }}>{item.icon}</span>
+                <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 8, alignItems: 'center', color: 'rgba(255,255,255,0.75)', fontSize: 11, lineHeight: 1.5 }}>
+                  <span style={{ fontSize: 9, padding: '2px 6px', borderRadius: 4, background: 'rgba(0,212,255,0.15)', color: '#00D4FF', border: '1px solid rgba(0,212,255,0.3)', flexShrink: 0 }}>{item.tag}</span>
                   <span>{item.label}</span>
                 </div>
               ))}
@@ -820,7 +820,7 @@ function TerraceTV({ position, onOpen }: { position: [number, number, number]; o
 
         <Float speed={2} floatIntensity={0.3} rotationIntensity={0}>
           <Text position={[0, 2.4, 0.2]} fontSize={0.22} color={hovered ? '#FFD700' : '#00D4FF'} anchorX="center" anchorY="middle">
-            {hovered ? '📺 Click!' : '👋 Raghav — Click Me'}
+            {hovered ? 'Open Bio' : 'Raghav — Click Me'}
           </Text>
         </Float>
       </group>
@@ -869,13 +869,13 @@ function BioPanel({ onClose }: { onClose: () => void }) {
         </div>
         <div style={{height:1,background:'linear-gradient(90deg,#00D4FF,#7C3AED,transparent)',marginBottom:14}} />
         {[
-          {icon:'📍',text:'Vijayawada, AP, India - 521225'},
-          {icon:'📧',text:'ranganathansadhula@gmail.com'},
-          {icon:'📱',text:'+91 7013608858'},
-          {icon:'🎓',text:'B.Tech CSE (AI&ML) — LBRCE, CGPA 8.5/10'},
+          {tag:'LOC',text:'Vijayawada, AP, India - 521225'},
+          {tag:'MAIL',text:'ranganathansadhula@gmail.com'},
+          {tag:'TEL',text:'+91 7013608858'},
+          {tag:'EDU',text:'B.Tech CSE (AI&ML) — LBRCE, CGPA 8.5/10'},
         ].map((item,i)=>(
-          <div key={i} style={{display:'flex',gap:8,marginBottom:8,alignItems:'flex-start'}}>
-            <span style={{fontSize:14}}>{item.icon}</span>
+          <div key={i} style={{display:'flex',gap:10,marginBottom:8,alignItems:'center'}}>
+            <span style={{fontSize:9,padding:'2px 6px',borderRadius:4,background:'rgba(0,212,255,0.15)',color:'#00D4FF',border:'1px solid rgba(0,212,255,0.3)',flexShrink:0}}>{item.tag}</span>
             <span style={{fontSize:11,color:'rgba(255,255,255,0.7)',lineHeight:1.5}}>{item.text}</span>
           </div>
         ))}
